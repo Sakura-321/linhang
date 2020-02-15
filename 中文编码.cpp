@@ -21,11 +21,11 @@ void disp(char *p)
 	{
 		for(int i=1;i<l-1;i+=2)
 			printf("%c%c",p[i],p[i+1]);
-	}	
+	}
 }
 int main()
 {
-	char *str[11]={"零","一","二","三","四","五","六","七","八","九","十"};
+	char str[11][3]={"零","一","二","三","四","五","六","七","八","九","十"};
     char var[100],var1[100],name[100],name1[100],name2[100],op[100],num[100];
 	char a1[100],a2[100],a3[100],a4[100],a5[100],a6[100],a7[100],a8[100],a9[100];
 	scanf("%s %s %s %s",var,name,op,num);
@@ -36,7 +36,10 @@ int main()
 		if(strcmp(var1,var)==0)
 		{
 			scanf("%s %s %s ",name1,op,num);
-			sum2=exchange(num);
+			if(strcmp(name1,name)==0)
+				sum1=exchange(num);
+			else
+				sum2=exchange(num);
 		}
 		else if(strcmp(var1,name)==0)
 		{
@@ -73,6 +76,8 @@ int main()
 				printf("%s\n",str[sum1]);
 			else if(strcmp(name2,name1)==0)
 				printf("%s\n",str[sum2]);
+			else
+				printf("数据不存在");
 		}	
 		else if(strcmp(var1,"如果")==0)
 		{
